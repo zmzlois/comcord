@@ -21,10 +21,9 @@ export class RoastThis {
     type: ApplicationCommandType.Message,
   })
   async messageHandler(
-
     interaction: MessageContextMenuCommandInteraction,
   ): Promise<void> {
-
+    await interaction.deferReply();
     const message = interaction.targetMessage
 
     let replyContent = ""
@@ -33,9 +32,7 @@ export class RoastThis {
       const generatedText = await this.promptReply(message, "default")
 
       if (generatedText.includes("\"") || generatedText.includes(" ")) {
-        const chunks = generatedText.split("\"")[0].replaceAll("\"", "").trim()
-
-        replyContent = chunks
+        replyContent = generatedText.split("\"")[0].replaceAll("\"", "").trim()
       }
       else {
         replyContent = generatedText
@@ -59,7 +56,7 @@ export class RoastThis {
       console.log(replyContent)
     }
 
-    await interaction.reply(replyContent);
+    await interaction.followUp(replyContent);
   }
 
   @ContextMenu({ name: "Roast Them", type: ApplicationCommandType.User })

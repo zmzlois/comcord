@@ -13,9 +13,6 @@ const BOT_TOKEN = process.env.BOT_TOKEN
 
 async function run() {
   DIService.engine = tsyringeDependencyRegistryEngine.setInjector(container);
-  await importx(
-      `${dirname(import.meta.url)}/{events,commands,api}/**/*.{ts,js}`,
-  );
   moduleRegistrar();
   if (!BOT_TOKEN) {
     throw Error("Could not find BOT_TOKEN in your environment");
@@ -35,7 +32,7 @@ async function run() {
     },
   });
   registerInstance(client);
-
+  await importx(`${dirname(import.meta.url)}/{events,commands}/**/*.{ts,js}`);
   await client.login(BOT_TOKEN);
 }
 
