@@ -8,9 +8,8 @@
   "scripts": {
     "build": "tsc",
     "build:changelog": "npx @discordx/changelog --src src",
-    "dev": "node --loader ts-node/esm/transpile-only src/main.ts",
-    "start": "node build/main.js",
-    "watch": "pnpm run build && nodemon --signal SIGTERM --watch '*/**' --exec pnpm run dev"
+    "dev": "node --loader ts-node/esm src/main.ts",
+    "start": "node build/main.js"
   },
   "dependencies": {
     "@discordx/importer": "^1.3.0",
@@ -22,7 +21,9 @@
     "discordx": "^11.9.0",
     "dotenv": "^16.4.5",
     "koa": "^2.14.2",
-    "openai": "^4.29.2"
+    "openai": "^4.29.2",
+    "reflect-metadata": "^0.2.1",
+    "tsyringe": "^4.8.0"
   },
   "devDependencies": {
     "@types/koa": "^2.13.12",
