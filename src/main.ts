@@ -3,6 +3,13 @@ import { Koa } from "@discordx/koa";
 import type { Interaction, Message } from "discord.js";
 import { IntentsBitField } from "discord.js";
 import { Client } from "discordx";
+import * as dotenv from "dotenv"
+
+dotenv.config()
+
+const BOT_TOKEN = process.env.BOT_TOKEN
+
+console.log("BOT_TOKEN:", BOT_TOKEN)
 
 export const bot = new Client({
   // To use only guild command
@@ -64,12 +71,12 @@ async function run() {
   );
 
   // Let's start the bot
-  if (!process.env.BOT_TOKEN) {
+  if (!BOT_TOKEN) {
     throw Error("Could not find BOT_TOKEN in your environment");
   }
 
   // Log in with your bot token
-  await bot.login(process.env.BOT_TOKEN);
+  await bot.login(BOT_TOKEN);
 
   // ************* rest api section: start **********
 
