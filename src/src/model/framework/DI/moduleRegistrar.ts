@@ -1,16 +1,16 @@
-import {container} from "tsyringe";
+import { container } from "tsyringe";
 import OpenAI from "openai"
-import {HfInference} from "@huggingface/inference";
+import { HfInference } from "@huggingface/inference";
+import { Env } from "../../../utils/env";
 
 export function moduleRegistrar(): void {
-    const oaToken = process.env.OPENAI_API_KEY;
+
     container.registerInstance(OpenAI, new OpenAI({
-        apiKey: oaToken,
-        organization: process.env.OPENAI_ORG_ID,
+        apiKey: Env("OPENAI_API_KEY"),
+        organization: Env("OPENAI_ORG_ID"),
     }));
 
-    const HF_TOKEN = process.env.HF_TOKEN;
-    container.registerInstance(HfInference, new HfInference(HF_TOKEN))
+    container.registerInstance(HfInference, new HfInference(Env("HF_TOKEN")))
 }
 
 export function registerInstance(...instances: any): void {
