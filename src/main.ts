@@ -12,7 +12,7 @@ import { Env } from "./src/utils/env.js";
 async function run() {
   DIService.engine = tsyringeDependencyRegistryEngine.setInjector(container);
   moduleRegistrar();
-  if (!Env("BOT_TOKEN")) {
+  if (!Env("DISCORD_BOT_TOKEN")) {
     throw Error("Could not find BOT_TOKEN in your environment");
   }
   const client = new Client({
@@ -34,7 +34,7 @@ async function run() {
   });
   registerInstance(client);
   await importx(`${dirname(import.meta.url)}/{events,commands}/**/*.{ts,js}`);
-  await client.login(Env("BOT_TOKEN"));
+  await client.login(Env("DISCORD_BOT_TOKEN"));
 }
 
 await run();
