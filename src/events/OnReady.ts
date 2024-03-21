@@ -1,7 +1,7 @@
-import type {ArgsOf} from "discordx";
-import {Client, Discord, On} from "discordx";
-import {injectable} from "tsyringe";
-import {DIService} from "@discordx/koa";
+import type { ArgsOf } from "discordx";
+import { Client, Discord, On } from "discordx";
+import { injectable } from "tsyringe";
+import { DIService } from "@discordx/koa";
 
 @Discord()
 @injectable()
@@ -12,6 +12,7 @@ export class OnReady {
     @On()
     private async ready([client]: ArgsOf<"ready">): Promise<void> {
         await this._client.initApplicationCommands();
+
         this.initDi();
     }
 
@@ -32,4 +33,6 @@ export class OnReady {
     private async messageCreate([message]: ArgsOf<"messageCreate">): Promise<void> {
         await this._client.executeCommand(message);
     }
+
+
 }
