@@ -8,3 +8,9 @@ yarn.lock
 # folders
 build
 node_modules
+
+# turbo
+.turbo
+
+# nx
+.nx/cache
