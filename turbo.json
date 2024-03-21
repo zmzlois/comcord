@@ -1,0 +1,54 @@
+{
+    "$schema": "https://turborepo.org/schema.json",
+    "globalDependencies": [
+        "**/.env.*local",
+        ".env"
+    ],
+    "pipeline": {
+        "topo": {
+            "dependsOn": [
+                "^topo"
+            ]
+        },
+        "bot:build": {
+            "dependsOn": [
+                "^tooling:build"
+            ]
+        },
+        "tooling:build": {}
+    },
+    "globalEnv": [
+        "CI",
+        "CLERK_SECRET_KEY",
+        "CLERK_WEBHOOK_SECRET",
+        "DATABASE_URL",
+        "EXPO_ROUTER_APP_ROOT",
+        "NEXT_PUBLIC_CLERK_PUBLISHABLE_KEY",
+        "NEXTJS_URL",
+        "NODE_ENV",
+        "SKIP_ENV_VALIDATION",
+        "STRIPE_API_KEY",
+        "STRIPE_WEBHOOK_SECRET",
+        "NEXT_PUBLIC_STRIPE_FREE_PRODUCT_ID",
+        "NEXT_PUBLIC_STRIPE_FREE_MONTHLY_PRICE_ID",
+        "NEXT_PUBLIC_STRIPE_STD_PRODUCT_ID",
+        "NEXT_PUBLIC_STRIPE_STD_MONTHLY_PRICE_ID",
+        "NEXT_PUBLIC_STRIPE_PRO_PRODUCT_ID",
+        "NEXT_PUBLIC_STRIPE_PRO_MONTHLY_PRICE_ID",
+        "VERCEL",
+        "VERCEL_URL",
+        "DISCORD_CLIENT_ID",
+        "DISCORD_CLIENT_SECRET",
+        "DISCORD_BOT_TOKEN",
+        "DISCORD_LOGGER_WEBHOOK_CHANNEL_ID",
+        "DISCORD_NEXT_ERROR_WEBHOOK",
+        "DISCORD_SIGNUP_WEBHOOK",
+        "KAFKA_BROKER_URL",
+        "KAFKA_USERNAME",
+        "KAFKA_PASSWORD",
+        "KAFKAJS_NO_PARTITIONER_WARNING",
+        "PORT",
+        "RESEND_API_KEY",
+        "OPENAI_API_KEY"
+    ]
+}

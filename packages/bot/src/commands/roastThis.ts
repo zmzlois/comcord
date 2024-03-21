@@ -22,8 +22,6 @@ export class RoastThis {
     name: "Roast This",
     type: ApplicationCommandType.Message,
   })
-
-
   async messageHandler(
     interaction: MessageContextMenuCommandInteraction,
   ): Promise<void> {

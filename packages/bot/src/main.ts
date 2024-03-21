@@ -4,8 +4,8 @@ import { DIService } from "@discordx/koa";
 import { IntentsBitField } from "discord.js";
 import { Client, tsyringeDependencyRegistryEngine } from "discordx";
 import { container } from "tsyringe";
-import { moduleRegistrar, registerInstance } from "./src/model/framework/DI/moduleRegistrar.js";
-import { Env } from "./src/utils/env.js";
+import { moduleRegistrar, registerInstance } from "./model/framework/DI/moduleRegistrar.js";
+import { Env } from "@comcord/utils/env.js";
 
 
 

@@ -1,0 +1,14 @@
+{
+  "name": "@comcord/utils",
+  "version": "1.0.0",
+  "description": "",
+  "main": "build/index.js",
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "node --loader ts-node/esm/transpile-only src/main.ts",
+    "build": "tsc"
+  },
+  "author": "",
+  "license": "ISC"
+}

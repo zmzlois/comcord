@@ -1,7 +1,7 @@
 import { container } from "tsyringe";
 import OpenAI from "openai"
 import { HfInference } from "@huggingface/inference";
-import { Env } from "../../../utils/env.js";
+import { Env } from "@comcord/utils/env";
 
 export function moduleRegistrar(): void {
 
