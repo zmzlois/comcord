@@ -9,6 +9,8 @@ export async function generateImage(message: Message) {
         .replaceAll(">", "&gt;")
         .replaceAll('"', "&quot;")
         .replaceAll("'", "&#039;");
+
+    const randomNumber = Math.floor(Math.random() * 500) + 100;
     const html = `
         <!DOCTYPE html>
 <html lang="en">
@@ -134,7 +136,7 @@ export async function generateImage(message: Message) {
       </div>
     </div>
     <img
-      src="https://i.ibb.co/crcPJJ3/cat.jpg"
+      src="https://http.cat/${randomNumber}"
       alt="Cat"
       height="100%"
       width="100%"
