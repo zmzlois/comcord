@@ -5,14 +5,14 @@ import { IntentsBitField } from "discord.js";
 import { Client, tsyringeDependencyRegistryEngine } from "discordx";
 import { container } from "tsyringe";
 import { moduleRegistrar, registerInstance } from "./model/framework/DI/moduleRegistrar.js";
-import { Env } from "@comcord/utils/env.js";
+import { env } from "./utils/env.js";
 
 
 
 async function run() {
   DIService.engine = tsyringeDependencyRegistryEngine.setInjector(container);
   moduleRegistrar();
-  if (!Env("BOT_TOKEN")) {
+  if (!env("DISCORD_BOT_TOKEN")) {
     throw Error("Could not find BOT_TOKEN in your environment");
   }
   const client = new Client({
@@ -33,8 +33,9 @@ async function run() {
     },
   });
   registerInstance(client);
-  await importx(`${dirname(import.meta.url)}/{events,commands}/**/*.{ts,js}`);
-  await client.login(Env("BOT_TOKEN"));
+
+  await importx(`${dirname(import.meta.url)}/{events,commands}/**/*.js`);
+  await client.login(env("DISCORD_BOT_TOKEN"));
 }
 
 await run();
