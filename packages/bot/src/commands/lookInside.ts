@@ -2,7 +2,8 @@ import { Discord, ContextMenu } from "discordx";
 import { injectable } from "tsyringe";
 import type { Message, MessageContextMenuCommandInteraction } from "discord.js";
 import { ApplicationCommandType } from "discord.js";
-
+import { generateImage } from "../handlers/lookInside/generateImage.js";
+import fs from "fs"
 
 @Discord()
 @injectable()
@@ -19,13 +20,13 @@ export class LookInside {
         await interaction.deferReply();
         const message = interaction.targetMessage;
 
-        const attachment = message.attachments.first();
-        if (!attachment) {
-            await interaction.editReply("There is no image attached to this message.");
-            return;
+        const generatedImage = await generateImage(interaction.targetMessage);
+        await interaction.editReply({
+            content: "",
+            files: [generatedImage],
+        });
+        if (fs.existsSync(generatedImage)) {
+            fs.unlinkSync(generatedImage);
         }
-
-        const url = attachment.url;
-        await interaction.editReply(`The image URL is: ${url}`);
     }
 }
