@@ -60,7 +60,9 @@ export class RoastThis {
       console.log(replyContent)
     }
 
-    await interaction.editReply(replyContent)
+    const formattedContent = this.gptReplyFormatting(interaction.guildId, interaction.channelId, interaction.id, replyContent)
+
+    await interaction.editReply(formattedContent)
   }
 
 
@@ -75,7 +77,9 @@ export class RoastThis {
 
     try {
 
-      replyContent = await this.promptReply(message, "askGPT")
+      const generated = await this.promptReply(message, "askGPT")
+
+      replyContent = this.gptReplyFormatting(interaction.guildId, interaction.channelId, interaction.id, generated)
 
     } catch (error: any) {
       console.error(error)
@@ -107,5 +111,8 @@ export class RoastThis {
     return `${this.prompts[type]}: ${message.content}`;
   }
 
+  private gptReplyFormatting(serverId: string | null, channelId: string, messageId: string, content: string): string {
+    return serverId ? `https://discord.com/channels/${serverId}/${channelId}/${messageId}\n ${content}` : ``
+  }
 
 }
