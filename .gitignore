@@ -1,16 +1,7 @@
-# files
-.vscode
-.env
-.env.local
-package-lock.json
-yarn.lock
-
-# folders
-build
 node_modules
 
-# turbo
 .turbo
+*/.turbo
 
-# nx
-.nx/cache
+.env
+.env.local

@@ -1,0 +1,21 @@
+{
+  "name": "@comcord/utils",
+  "version": "1.0.0",
+  "description": "",
+  "exports": {
+    ".": {
+      "import": "./build/index.mjs",
+      "require": "./build/index.mjs",
+      "types": "./build/index.d.ts"
+    }
+  },
+  "devDependencies": {
+    "tsup": "^8.0.2"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "tsup"
+  },
+  "author": "",
+  "license": "ISC"
+}
