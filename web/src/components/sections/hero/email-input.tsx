@@ -21,10 +21,10 @@ import * as z from "zod";
 
 import { useProjectStore } from "@/lib/store";
 import { useZodForm } from "@/lib/zod-form";
-import {
-  queryEmail,
-  WaitlistHandler,
-} from "@/server-action/email/waitlist-handler";
+// import {
+//   queryEmail,
+//   WaitlistHandler,
+// } from "@/server-action/email/waitlist-handler";
 
 const emailSchema = z.object({
   email: z.string().email({ message: "Please enter a valid email" }),
@@ -54,22 +54,22 @@ export default function EmailInput() {
 
       updateEmail(data.email);
 
-      const findEmail = await queryEmail({ input: { email: data.email } });
-      if (findEmail.length > 0 && findEmail[0]!.verified !== 0) {
-        toast({
-          title: "You are already on our waitlist 🥺",
-          description: (
-            <pre className="mt-2 w-[340px] rounded-md bg-slate-950 p-4">
-              <code className="text-white">
-                {JSON.stringify(findEmail[0]!.email, null, 2)}
-              </code>
-            </pre>
-          ),
-        });
-        router.push(`/verify/${findEmail[0]!.verificationId}`);
-      }
+      // const findEmail = await queryEmail({ input: { email: data.email } });
+      // if (findEmail.length > 0 && findEmail[0]!.verified !== 0) {
+      //   toast({
+      //     title: "You are already on our waitlist 🥺",
+      //     description: (
+      //       <pre className="mt-2 w-[340px] rounded-md bg-slate-950 p-4">
+      //         <code className="text-white">
+      //           {JSON.stringify(findEmail[0]!.email, null, 2)}
+      //         </code>
+      //       </pre>
+      //     ),
+      //   });
+      //   router.push(`/verify/${findEmail[0]!.verificationId}`);
+      // }
 
-      const res = await WaitlistHandler({ input: { email: data.email } });
+      // const res = await WaitlistHandler({ input: { email: data.email } });
 
       toast({
         title: "OMFG You joined our waitlist?  🎉 ",

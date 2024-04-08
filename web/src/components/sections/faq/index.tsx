@@ -24,7 +24,7 @@ function FAQ() {
     >
       <div className="container mx-auto">
         <div className="my-8">
-          <h5 className="text-center text-3xl font-bold sm:text-6xl">
+          <h5 className="text-center text-secondary text-3xl font-bold sm:text-6xl">
             Frequently asked questions
           </h5>
         </div>
@@ -43,7 +43,7 @@ function FAQ() {
                 <div className="my-4 flex content-center items-center space-x-2 align-middle ">
                   <Icons.ChevronsUp className="text-accent-5 h-6 w-6 rotate-180 transition-all duration-500 group-hover:rotate-0" />
                   <h2
-                    className="text-accent-5 text-md font-bold tracking-tighter md:text-xl"
+                    className="text-accent-1 text-md font-bold tracking-tighter md:text-xl"
                     dangerouslySetInnerHTML={{
                       __html: q.question,
                     }}
