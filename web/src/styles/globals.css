@@ -4,36 +4,53 @@
 
 @layer base {
   :root {
-    --background: 0 0% 100%;
-    --foreground: 222.2 47.4% 11.2%;
+    --background: 0deg 0% 100%;
+    --foreground: 222.2deg 47.4% 11.2%;
 
-    --muted: 210 40% 96.1%;
-    --muted-foreground: 215.4 16.3% 46.9%;
+    --muted: 210deg 40% 96.1%;
+    --muted-foreground: 215.4deg 16.3% 46.9%;
 
-    --popover: 0 0% 100%;
-    --popover-foreground: 222.2 47.4% 11.2%;
+    --popover: 0deg 0% 100%;
+    --popover-foreground: 222.2deg 47.4% 11.2%;
 
-    --border: 214.3 31.8% 91.4%;
-    --input: 214.3 31.8% 91.4%;
+    --border: 214.3deg 31.8% 91.4%;
+    --input: 214.3deg 31.8% 91.4%;
 
-    --card: 0 0% 100%;
-    --card-foreground: 222.2 47.4% 11.2%;
+    --card: 0deg 0% 100%;
+    --card-foreground: 222.2deg 47.4% 11.2%;
 
-    --primary: 222.2 47.4% 11.2%;
-    --primary-foreground: 210 40% 98%;
+    --primary: 222.2deg 47.4% 11.2%;
+    --primary-foreground: 210deg 40% 98%;
 
-    --secondary: 210 40% 96.1%;
-    --secondary-foreground: 222.2 47.4% 11.2%;
+    --secondary: 210deg 40% 96.1%;
+    --secondary-foreground: 222.2deg 47.4% 11.2%;
 
-    --accent: 210 40% 96.1%;
-    --accent-foreground: 222.2 47.4% 11.2%;
+    --accent: 210deg 40% 96.1%;
+    --accent-foreground: 222.2deg 47.4% 11.2%;
 
-    --destructive: 0 100% 50%;
-    --destructive-foreground: 210 40% 98%;
+    --destructive: 0deg 100% 50%;
+    --destructive-foreground: 210deg 40% 98%;
 
-    --ring: 215 20.2% 65.1%;
-
+    --ring: 215deg 20.2% 65.1%;
     --radius: 0.5rem;
+
+    --blurple: 235 86% 65%;
+    --mauve: 288 100% 67%;
+    --persian-pink: 328 100% 76.08%;
+    --brink-pink: 11.89 98.15% 78.82%;
+    --baby-purple: 262.8 94.34% 79.22%;
+    --dark-charcoal: 214.29 7.37% 18.63%;
+    --onyx: 195 3.64% 21.57%;
+    --nebula-blue: 232.94 100% 66.47%;
+    --cadet-gray: 205.16 16.4% 62.94%;
+    --antiflash-white: 0 0% 94.12%;
+    --smoky-black: 0 0% 5.49%;
+    --bluetiful: 224.62deg 68.97% 90.98%;
+    --accent-1: 313 25% 56%;
+    --burgundy: 350 95% 32%;
+    --desert-sun: 28 88% 69%;
+    --discord-black: 206deg 9% 15%;
+    --fefefe: 0deg 0% 99.61%;
   }
 
   .dark {
@@ -44,9 +61,11 @@
     --muted-foreground: 215.4 16.3% 56.9%;
 
     --accent: 216 34% 17%;
+    /*#F8FAFC*/
     --accent-foreground: 210 40% 98%;
 
     --popover: 224 71% 4%;
+    /*#94A3B8*/
     --popover-foreground: 215 20.2% 65.1%;
 
     --border: 216 34% 17%;
@@ -67,6 +86,40 @@
     --ring: 216 34% 17%;
 
     --radius: 0.5rem;
+    /*#5966f3*/
+    --blurple: 235deg 86% 65%;
+    /*#dd57ff*/
+    --mauve: 288deg 100% 67%;
+    /*#ff85c6*/
+    --persian-pink: 328deg 100% 76.08%;
+    /*#fea994*/
+    --brink-pink: 11.89deg 98.15% 78.82%;
+    /*#be98fc*/
+    --baby-purple: 262.8deg 94.34% 79.22%;
+    /*#2c2f33*/
+    --dark-charcoal: 214.29deg 7.37% 18.63%;
+    /*#353839*/
+    --onyx: 195deg 3.64% 21.57%;
+    /*#5468ff*/
+    --nebula-blue: 232.94deg 100% 66.47%;
+    /*#91A3B0*/
+    --cadet-gray: 205.16deg 16.4% 62.94%;
+    /*#f0f0f0*/
+    --antiflash-white: 0deg 0% 94.12%;
+    /*#0e0e0e*/
+    --smoky-black: 0deg 0% 5.49%;
+    /*#4972e9*/
+    --bluetiful: 224.62deg 78% 60%;
+    /*This is a pinkish purple color*/
+    /*#ab739f*/
+    --accent-1: 313deg 25% 56%;
+    /*#9f041e*/
+    --burgundy: 350deg 95% 32%;
+    /*#f3933f*/
+    --desert-sun: 28deg 88% 69%;
+    /*#23272a*/
+    --discord-black: 206deg 9% 15%;
+    --fefefe: 0deg 0% 100%;
   }
 }
 
@@ -76,6 +129,159 @@
   }
   body {
     @apply bg-background text-foreground;
-    font-feature-settings: "rlig" 1, "calt" 1;
+    font-feature-settings:
+      "rlig" 1,
+      "calt" 1;
+  }
+  .container {
+    @apply max-sm:px-4;
+  }
+
+  .target::-webkit-scrollbar {
+    display: none;
+  }
+
+  ::-webkit-scrollbar {
+    width: 0px;
+  }
+
+  /* Hide scrollbar for IE, Edge and Firefox */
+  .target {
+    -ms-overflow-style: none; /* IE and Edge */
+    scrollbar-width: none; /* Firefox */
+    scrollbar-color: transparent transparent; /* Firefox */
+  }
+
+  .target::-webkit-scrollbar-track {
+    background: transparent;
+  }
+
+  .target::-webkit-scrollbar-thumb {
+    background-color: transparent;
+    border-radius: 0px;
+  }
+
+  .target::-webkit-scrollbar-thumb:hover {
+    background-color: transparent;
+  }
+
+  .target::-webkit-scrollbar-thumb:active {
+    background-color: transparent;
+  }
+
+  .target::-webkit-scrollbar-thumb:window-inactive {
+    background-color: transparent;
+  }
+
+  .target::-webkit-scrollbar-corner {
+    background-color: transparent;
+  }
+
+  .target::-webkit-scrollbar-track-piece {
+    background-color: transparent;
+  }
+
+  .target::-webkit-scrollbar-track-piece:start {
+    background-color: transparent;
+  }
+
+  .target::-webkit-scrollbar-track-piece:end {
+    background-color: transparent;
+  }
+
+  .target::-webkit-scrollbar-track-piece:window-inactive {
+    background-color: transparent;
+  }
+
+  .target::-webkit-scrollbar-track-piece:window-inactive:start {
+    background-color: transparent;
+  }
+
+  .target::-webkit-scrollbar-track-piece:window-inactive:end {
+    background-color: transparent;
+  }
+
+  .target::-webkit-scrollbar-corner {
+    background-color: transparent;
+  }
+}
+
+@layer components {
+  .emerald-boxshadow {
+    box-shadow: 4px 4px #21a193;
+  }
+
+  .small-black-boxshadow {
+    box-shadow: 2px 2px #0e0e0e;
+  }
+
+  .medium-black-boxshadow {
+    box-shadow: 4px 4px #0e0e0e;
+  }
+
+  .black-boxshadow {
+    box-shadow: 6px 6px #0e0e0e;
+  }
+
+  .white-boxshadow {
+    box-shadow:
+      4px 4px #f2f2f2,
+      4px 4px 0px 3px black;
+  }
+
+  .pink-boxshadow {
+    box-shadow: 4px 4px #fe91e8;
+  }
+
+  .burgundy-boxshadow {
+    box-shadow: 4px 4px #a0041e;
+  }
+
+  .orange-boxshadow {
+    box-shadow: 4px 4px #f6ac6c;
+  }
+
+  .yellow-boxshadow {
+    box-shadow: 4px 4px #f8cb46;
+  }
+
+  .green-boxshadow {
+    box-shadow: 4px 4px #219193;
+  }
+
+  .lightblurple-boxshadow {
+    box-shadow: 4px 4px #4871e8;
+  }
+
+  .blurple-boxshadow {
+    box-shadow: 4px 4px #5865f2;
+  }
+}
+
+@layer utilities {
+  .image {
+    position: absolute;
+    top: 0;
+    left: 0;
+    opacity: 0;
+    animation: fade 10s infinite;
+  }
+
+  .image.active {
+    opacity: 1;
+  }
+
+  .faq-background {
+    background-color: transparent;
+    background-image: url("data:image/svg+xml,%3Csvg width='52' height='26' viewBox='0 0 52 26' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23a67be9' fill-opacity='0.16'%3E%3Cpath d='M10 10c0-2.21-1.79-4-4-4-3.314 0-6-2.686-6-6h2c0 2.21 1.79 4 4 4 3.314 0 6 2.686 6 6 0 2.21 1.79 4 4 4 3.314 0 6 2.686 6 6 0 2.21 1.79 4 4 4v2c-3.314 0-6-2.686-6-6 0-2.21-1.79-4-4-4-3.314 0-6-2.686-6-6zm25.464-1.95l8.486 8.486-1.414 1.414-8.486-8.486 1.414-1.414z' /%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+  }
+
+  @keyframes fade-out {
+    from {
+      opacity: 1;
+    }
+    to {
+      opacity: 0;
+    }
   }
 }
