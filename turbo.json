@@ -50,7 +50,7 @@
                 "^build"
             ]
         },
-        "tooling:build": {}
+        "tooling:build": {},
     },
     "globalEnv": [
         "CI",
