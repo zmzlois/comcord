@@ -14,7 +14,7 @@ import {
 import { ArrowLeft } from "lucide-react";
 
 import { siteConfig } from "@/app/config";
-import { MobileDropdown } from "@/components/mobile-nav";
+import { MobileDropdown } from "@/components/marketing/mobile-nav";
 
 function MarketingNavBar() {
   const pathname = usePathname();
@@ -89,24 +89,6 @@ function MarketingNavBar() {
               {siteConfig.name}
             </span>
           </Link>
-          <Link
-            href={
-              pathname === "/"
-                ? "/blogs"
-                : pathname === "/blogs"
-                  ? "/"
-                  : "/blogs"
-            }
-            className={cn(
-              " flex   items-center rounded-full py-2 font-light tracking-wide text-smoky-black transition-all duration-500 hover:underline hover:underline-offset-4 md:px-4  md:text-xl",
-              { "text-antiflash-white": pathname.includes("blogs") }
-            )}
-          >
-            {blogPath.current && <ArrowLeft className="w-4 h-4 mr-2" />}
-            <span className={"text-sm "}>
-              {blogPath.current ? "Back" : "Blog"}
-            </span>
-          </Link>
         </div>
         <div className="items-center hidden space-x-4 md:flex">
           <MobileDropdown />
@@ -123,7 +105,7 @@ function MarketingNavBar() {
                     target="_blank"
                     rel="noreferrer"
                     className={cn(
-                      "black-boxshadow transition:all md:text-md  items-center justify-center rounded-full border-[3px] bg-foreground  px-4 py-2 text-xs font-bold tracking-tight  text-slate-900 duration-200 ease-in-out hover:bg-foreground/80 hover:text-slate-800 hover:shadow-none focus:border-foreground focus:bg-smoky-black focus:text-antiflash-white md:inline-flex lg:text-lg",
+                      "black-boxshadow transition:all md:text-md  items-center justify-center rounded-full border-[3px] border-discord-black bg-popover-foreground px-4 py-2 text-xs font-bold tracking-tight  text-slate-900 duration-200 ease-in-out hover:bg-foreground/80 hover:text-slate-200 hover:shadow-none focus:border-foreground focus:bg-smoky-black focus:text-antiflash-white md:inline-flex lg:text-lg",
                       {
                         "white-boxshadow bg-desert-sun text-smoky-black hover:bg-antiflash-white":
                           pathname.includes("blog"),
@@ -152,7 +134,11 @@ function MarketingNavBar() {
 export default MarketingNavBar;
 
 function DashboardLink() {
-  const { userId, isLoaded, orgId } = useAuth();
+  // const { userId, isLoaded, orgId } = useAuth();
+
+  let userId = true;
+  let isLoaded = true;
+  let orgId = true;
 
   console.log("userid", userId);
 

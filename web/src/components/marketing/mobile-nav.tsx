@@ -12,8 +12,22 @@ import {
 import { ScrollArea } from "@/components/ui/scroll-area";
 
 import { navItems, siteConfig } from "@/app/config";
-import { Search } from "~/components/shared/search";
-import ThemeToggle from "./theme-toggle";
+
+import ThemeToggle from "@/components/theme-toggle";
+
+import { Input } from "@/components/ui/input";
+
+export function Search() {
+  return (
+    <div>
+      <Input
+        type="search"
+        placeholder="Search..."
+        className="h-9 md:w-[100px] lg:w-[300px]"
+      />
+    </div>
+  );
+}
 
 export function MobileDropdown() {
   const [isOpen, setIsOpen] = React.useState(false);

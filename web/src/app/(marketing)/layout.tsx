@@ -5,7 +5,7 @@ import type { ReactNode } from "react";
 import { cn } from "@/lib/utils";
 import { SiteFooter } from "@/components/marketing/footer";
 import { fontSpace } from "@/styles/fonts";
-import MarketingNavBar from "./nav";
+import MarketingNavBar from "@/components/marketing/nav";
 
 export default function MarketingLayout({
   children,
