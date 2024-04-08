@@ -5,10 +5,9 @@ import { Toaster } from "@/components/ui/toaster";
 import { Analytics } from "@vercel/analytics/next";
 import { TailwindIndicator } from "@/components/tailwind-indicator";
 import { siteConfig } from "./config";
-import { ThemeProvider } from "next-themes";
+import { ThemeProvider } from "@/components/theme-provider";
 import { GGRegular } from "@/styles/fonts";
-
-const inter = Inter({ subsets: ["latin"] });
+import { cn } from "@/lib/utils";
 
 export const metadata: Metadata = {
   title: {
@@ -38,14 +37,10 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" suppressHydrationWarning className="bg-background">
+    <html lang="en" suppressHydrationWarning>
       {/* TODO: add font-sans antialiased back to body className*/}
-      <body className={GGRegular.className}>
-        <ThemeProvider
-          attribute="class"
-          defaultTheme="dark"
-          // enableSystem
-        >
+      <body className={cn(GGRegular.className, "bg-primary dark")}>
+        <ThemeProvider attribute="class" defaultTheme="dark" enableSystem>
           {children}
           <TailwindIndicator />
         </ThemeProvider>
