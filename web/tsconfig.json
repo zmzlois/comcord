@@ -1,5 +1,5 @@
 {
-  "extends": "tsconfig/base.json",
+  "extends": "@comcord/tsconfig/base.json",
   "compilerOptions": {
       "lib": [
           "dom",
@@ -34,7 +34,7 @@
       "**/*.ts",
       "**/*.tsx",
       ".next/types/**/*.ts"
-  ],
+, "../packages/email/email-tailwind.ts"  ],
   "exclude": [
       "node_modules"
   ]
