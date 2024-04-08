@@ -1,0 +1,37 @@
+{
+    "name": "@comcord/tailwind-config",
+    "version": "0.1.0",
+    "main": "index.ts",
+    "license": "MIT",
+    "files": [
+        "index.ts",
+        "postcss.js"
+    ],
+    "scripts": {
+        "clean": "rm -rf .turbo node_modules",
+        "lint": "eslint .",
+        "format": "prettier --check \"**/*.{js,ts,json}\"",
+        "typecheck": "tsc --noEmit"
+    },
+    "dependencies": {
+        "autoprefixer": "^10.4.16",
+        "postcss": "^8.4.31",
+        "tailwindcss": "3.3.4"
+    },
+    "devDependencies": {
+        "@comcord/eslint-config": "workspace:*",
+        "@comcord/prettier-config": "workspace:*",
+        "@comcord/tsconfig": "workspace:*",
+        "@types/node": "^20.8.10",
+        "eslint": "^8.52.0",
+        "prettier": "^3.0.3",
+        "typescript": "^5.2.2"
+    },
+    "eslintConfig": {
+        "root": true,
+        "extends": [
+            "@comcord/eslint-config/base"
+        ]
+    },
+    "prettier": "@comcord/prettier-config"
+}
